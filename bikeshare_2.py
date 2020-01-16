@@ -53,9 +53,9 @@ def load_data(city, month, day):
      # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
 
-    # convert the Start Time & End Time columns to datetime
+    # convert the Start Time columns to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    df['End Time'] = pd.to_datetime(df['End Time'])
+    #df['End Time'] = pd.to_datetime(df['End Time'])
 
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
@@ -147,7 +147,14 @@ def trip_duration_stats(df):
 
 
 def user_stats(df, city):
-    """Displays statistics on bikeshare users."""
+    """Displays statistics on bikeshare users.
+    Args:
+        df - Pandas DataFrame containing city data filtered by month and day
+        (str) city - name of the city
+    Returns:
+        Nothing
+
+    """
 
     print('\nCalculating User Stats...\n')
     start_time = time.time()
@@ -170,7 +177,14 @@ def user_stats(df, city):
     print('-'*40)
 
 def most_common(df, col):
-    """Calculate the most common values."""
+    """Calculate the most common values.
+    Args:
+        df - Pandas DataFrame containing city data filtered by month and day
+        (str) col - name of the col to filter 
+
+    Returns:
+
+    """
 
     dict_counter = defaultdict(int)
     for d in df[col]:
