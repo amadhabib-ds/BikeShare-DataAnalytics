@@ -177,7 +177,14 @@ def user_stats(df, city):
     print('-'*40)
 
 def most_common(df, col):
-    """Calculate the most common values."""
+    """Calculate the most common values.
+    Args:
+        df - Pandas DataFrame containing city data filtered by month and day
+        (str) col - name of the col to filter 
+
+    Returns:
+
+    """
 
     dict_counter = defaultdict(int)
     for d in df[col]:
